@@ -79,36 +79,17 @@
   ],
   "burgers": [
     {
-      "id": "e3cc",
+      "id": "a5b7",
       "nome": "Bernardo",
-      "carne": "Picanha",
-      "pao": "3 Queijos",
-      "opcionais": [
-        "Bacon"
-      ],
-      "status": "Solicitado"
-    },
-    {
-      "id": "d33d",
-      "nome": "Pedro",
       "carne": "Maminha",
       "pao": "3 Queijos",
       "opcionais": [
-        "Salame"
-      ],
-      "status": "Solicitado"
-    },
-    {
-      "id": "1b99",
-      "nome": "Thiago",
-      "carne": "Veggie burger",
-      "pao": "Italiano Branco",
-      "opcionais": [
-        "Cebola roxa",
+        "Bacon",
         "Salame",
-        "Tomate"
+        "Pepino"
       ],
-      "status": "Solicitado"
+      "status": "Em produção",
+      "classe": ""
     }
   ]
 }

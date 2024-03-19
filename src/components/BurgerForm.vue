@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Mensagem :msg="message" v-show="message" />
+        <Mensagem :msg="message" v-show="message" :classe="classe"/>
         <div>
             <form id="burgerFormId" @submit="createBurger">
                 <div class="inputContainer">
@@ -26,8 +26,8 @@
 
                 <div id="opcionaisContainer" class="inputContainer">
                     <label id="opcionaisTitle" for="opcionais">Selecione os opcionais:</label>
-                    <div v-for="opcao in opcionaisData" class="checkboxContainer">
-                        <input type="checkbox" name="opcionais" v-model="opcionais" :key="opcao.id" :value="opcao.tipo">
+                    <div v-for="opcao in opcionaisData" class="checkboxContainer" :key="opcao.id">
+                        <input type="checkbox" name="opcionais" v-model="opcionais" :value="opcao.tipo">
                         <span>{{ opcao.tipo }}</span>
                     </div>
                 </div>
@@ -42,6 +42,7 @@
 
 
 <script>
+import { RouterLink } from 'vue-router'
 import Mensagem from "./Mensagem.vue"
 
 export default {
@@ -78,6 +79,7 @@ export default {
                 pao: this.pao,
                 opcionais: Array.from(this.opcionais),
                 status: "Solicitado",
+                classe: ''
             }
 
             const req = await fetch('http://localhost:3000/burgers', {
@@ -91,8 +93,10 @@ export default {
             console.log(res)
             this.handleMessage()
             this.dataNull()
+
         },
         handleMessage() {
+            this.classe = 'green'
             this.message = "Pedido realizado com sucesso!"
             setTimeout(() => this.message = "", 3000);
         },
